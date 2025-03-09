@@ -18,6 +18,10 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 include(GoogleTest)
 
+# OPEN-CV
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+
 add_subdirectory(src)
 add_subdirectory(tests)
 
