@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 
+option(ENABLE_VISUALIZATION "Enable visualization - OpenCV required" OFF)
+
 # G-TEST
 FetchContent_Declare(
   googletest
@@ -18,9 +20,13 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 include(GoogleTest)
 
-# OPEN-CV
-find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_INCLUDE_DIRS} )
+if(ENABLE_VISUALIZATION)
+  # OPEN-CV
+  find_package( OpenCV REQUIRED )
+  include_directories( ${OpenCV_INCLUDE_DIRS} )
+
+  add_subdirectory(app)
+endif()
 
 add_subdirectory(src)
 add_subdirectory(tests)
