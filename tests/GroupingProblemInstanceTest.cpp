@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include <problemEntities/GroupingProblemInstance.hpp>
 
+using namespace problem;
+
 struct GroupingProblemTest : ::testing::Test
 {
     GroupingProblemParams params{
