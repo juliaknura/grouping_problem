@@ -30,8 +30,6 @@ namespace problem
     using ClassId = size_t;
     using GroupingProblemSolution = std::vector<ClassId>;
 
-    static constexpr double BOARD_MAX_COORD{10.0};
-
     class GroupingProblem
     {
     public:

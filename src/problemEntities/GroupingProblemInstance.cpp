@@ -7,9 +7,13 @@
 
 namespace
 {
+    static constexpr double BOARD_MAX_COORD{10.0};
+    static constexpr double STDEV_STDEV{0.1};
+    static constexpr double STDEV_MEAN{0.5};
+
     bool inRange(const double a)
     {
-        return a >= 0 and a < problem::BOARD_MAX_COORD;
+        return a >= 0 and a < BOARD_MAX_COORD;
     }
 }
 
@@ -36,20 +40,28 @@ namespace problem
 
         std::random_device rd{};
         std::mt19937 gen{rd()};
+
         std::uniform_real_distribution<double> uniformDistribution{0, BOARD_MAX_COORD};
+        std::normal_distribution normalDistibutionStdev{STDEV_MEAN, STDEV_STDEV};
+
         const auto groupPopulation = params.problemSize / params.numberOfClasses;
 
         for (size_t i = 0; i < params.numberOfClasses; i++)
         {
-            const auto mean = uniformDistribution(gen);
-            const auto stdevX = uniformDistribution(gen);
-            const auto stdevY = uniformDistribution(gen);
-            std::normal_distribution normalDistributionX{mean, stdevX};
-            std::normal_distribution normalDistributionY{mean, stdevY};
+            auto stdevX = normalDistibutionStdev(gen);
+            stdevX = stdevX < 0.0 ? 0.0 : stdevX;
+            auto stdevY = normalDistibutionStdev(gen);
+            stdevY = stdevY < 0.0 ? 0.0 : stdevY;
+
+            std::normal_distribution normalDistributionX{0.0, stdevX};
+            std::normal_distribution normalDistributionY{0.0, stdevY};
+
+            auto groupRoughCenter = Point{uniformDistribution(gen), uniformDistribution(gen)};
+
             for (size_t j = 0; j < groupPopulation; j++)
             {
-                const auto x = normalDistributionX(gen);
-                const auto y = normalDistributionY(gen);
+                const auto x = groupRoughCenter.x + normalDistributionX(gen);
+                const auto y = groupRoughCenter.y + normalDistributionY(gen);
                 if (inRange(x) and inRange(y))
                     mPoints.push_back(MutablePoint{x, y});
             }
