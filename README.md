@@ -8,7 +8,7 @@ A program for grouping a set of points into N clusters
 - [x] visualization method
 - [ ] add genetic algorithm solution
 - [ ] add other numerical optimization method
-- [ ] add pipeline
+- [x] add pipeline
 - [ ] add load from file
 
 ## Configure and build
