@@ -1,0 +1,14 @@
+namespace problemFbs;
+
+struct Point{
+    x:float;
+    y:float;
+}
+
+table ProblemInstance{
+    points:[Point] (required);
+    problem_size:uint;
+    number_of_classes:uint;
+}
+
+root_type ProblemInstance;
