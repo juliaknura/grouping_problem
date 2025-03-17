@@ -28,7 +28,6 @@ namespace visualization
         }
 
         cv::imshow("Grouping problem", background);
-        cv::waitKey(0);
     }
 
     void drawProblemWithSolution(const problem::GroupingProblem &problem, const problem::GroupingProblemSolution &solution)
@@ -57,6 +56,10 @@ namespace visualization
         }
 
         cv::imshow("Grouping problem solution", background);
+    }
+
+    void pauseApp()
+    {
         cv::waitKey(0);
     }
 }

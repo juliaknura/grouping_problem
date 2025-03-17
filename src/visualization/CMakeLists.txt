@@ -1,5 +1,5 @@
 add_library(visualization
-    visualization/DrawProblem.cpp
+    DrawProblem.cpp
 )
 
 target_include_directories(visualization PUBLIC 
