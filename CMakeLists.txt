@@ -26,6 +26,15 @@ if(ENABLE_VISUALIZATION)
   include_directories( ${OpenCV_INCLUDE_DIRS} )
 endif()
 
+# FLATBUFFERS v25.2.10
+FetchContent_Declare(
+    flatbuffers
+    GIT_REPOSITORY https://github.com/google/flatbuffers.git
+    GIT_TAG v25.2.10
+)
+FetchContent_MakeAvailable(flatbuffers)
+
+add_subdirectory(app)
 add_subdirectory(src)
 add_subdirectory(tests)
 
