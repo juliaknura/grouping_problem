@@ -1,3 +1,4 @@
+#pragma once
 #include <problemEntities/GroupingProblemInstance.hpp>
 
 class Solver

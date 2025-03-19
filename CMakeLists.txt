@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(FetchContent)
 
 option(ENABLE_VISUALIZATION "Enable visualization - OpenCV required" OFF)
+configure_file(config.h.in config.h)
 
 # G-TEST
 FetchContent_Declare(
