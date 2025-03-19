@@ -9,20 +9,36 @@ A program for grouping a set of points into N clusters
 - [ ] add genetic algorithm solution
 - [ ] add other numerical optimization method
 - [x] add pipeline
-- [ ] add load from file
+- [x] add load from file
 
-## Configure and build
+## Configure, build and run
 
 Configure:
 ```
+mkdir build
 cd build
 cmake ..
 ```
-Build
+
+Configure with visualization (OpenCV required):
 ```
-make -j
+mkdir build
+cd build
+cmake .. -DENABLE_VISUALIZATION=ON
 ```
 
+To build run `build_script.sh` in repository root directory
+
+To parse your own input files, place your .json file in /tmp folder and run the command:
+```
+./build/_deps/flatbuffers-build/flatc -o ./tmp -b ./schemas/problem.fbs ./tmp/your_file_name.json
+```
+or parse the example .json
+```
+./build/_deps/flatbuffers-build/flatc -o ./tmp -b ./schemas/problem.fbs ./example/exampleProblem.json
+```
+
+To run program, execute ./build/app/groupingProblem with path to problem .bin file as first argument (or without arguments to randomly generate a problem).
 
 ## Problem entities
 
