@@ -17,3 +17,8 @@ target_link_libraries(
 
 gtest_discover_tests(problemInstanceTest)
 gtest_discover_tests(setupTest)
+
+add_custom_target(allTests
+    problemInstanceTest
+    setupTest
+)
