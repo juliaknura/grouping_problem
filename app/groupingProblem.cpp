@@ -2,6 +2,7 @@
 #include <config.h>
 #include <reader/ReaderUtils.hpp>
 #include <memory>
+#include <solver/geneticAlgo/GeneticAlgorithmSolver.hpp>
 
 #ifdef ENABLE_VISUALIZATION
 #include <visualization/DrawProblem.hpp>
@@ -15,9 +16,10 @@ void handleProblem(const problem::GroupingProblem &problem)
 #ifdef ENABLE_VISUALIZATION
     visualization::drawProblemEntity(problem);
 #endif
-    /*solve problem*/
+    GeneticAlgorithmSolver solver;
+    auto solution = solver.solve(problem);
 #ifdef ENABLE_VISUALIZATION
-    // visualization::drawProblemWithSolution(problem,solution);
+    visualization::drawProblemWithSolution(problem, solution.second);
     visualization::pauseApp();
 #endif
 }

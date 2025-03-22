@@ -3,5 +3,7 @@
 
 class Solver
 {
-    virtual std::pair<std::optional<double>, GroupingProblemSolution> solve(const GroupingProblem &problem) = 0;
+public:
+    virtual std::pair<double, problem::GroupingProblemSolution> solve(const problem::GroupingProblem &problem) = 0;
+    virtual ~Solver() {};
 };
