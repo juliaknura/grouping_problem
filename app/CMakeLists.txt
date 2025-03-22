@@ -5,6 +5,7 @@ add_executable(groupingProblem
 target_link_libraries(groupingProblem
     problemEntities
     reader
+    solver
 )
 
 if(ENABLE_VISUALIZATION)

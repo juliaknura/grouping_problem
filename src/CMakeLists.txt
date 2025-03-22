@@ -24,3 +24,11 @@ target_include_directories(reader PUBLIC
 if(ENABLE_VISUALIZATION)
   add_subdirectory(visualization)
 endif()
+
+add_library(solver
+    solver/geneticAlgo/GeneticAlgorithmSolver.cpp
+)
+
+target_link_libraries(solver
+    problemEntities
+)
