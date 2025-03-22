@@ -6,7 +6,8 @@ A program for grouping a set of points into N clusters
 
 - [x] definition of problem entities
 - [x] visualization method
-- [ ] add genetic algorithm solution
+- [x] add genetic algorithm solution
+- [ ] improve genetic algorithm solution
 - [ ] add other numerical optimization method
 - [x] add pipeline
 - [x] add load from file
